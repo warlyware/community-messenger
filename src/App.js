@@ -17,7 +17,7 @@ const App = () => (
         <li><Link to="/">Dashboard</Link></li>
         <li><Link to="/messages">Messages</Link></li>
         <li><Link to="/subscribers">Subscribers</Link></li>
-        <li><Link to="/about">About</Link></li>
+        <li><Link to="/help">Help</Link></li>
       </ul>
 
       <hr/>
