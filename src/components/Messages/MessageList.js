@@ -1,9 +1,7 @@
 import React from 'react';
 
-const MessageList = ({ match }) => (
-  <div>
-    <h3>{match.params.messageType}</h3>
-  </div>
+const MessageList = (route) => (
+  <h3>{route.match.params.messageType}</h3>
 );
 
 export default MessageList;

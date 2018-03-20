@@ -1,9 +1,7 @@
 import React from 'react';
 
 const Help = () => (
-  <div>
-    <h2>Help</h2>
-  </div>
+  <h2>Help</h2>
 );
 
 export default Help;

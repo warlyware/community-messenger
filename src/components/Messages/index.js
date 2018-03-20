@@ -7,25 +7,25 @@ import {
 
 import MessageList from './MessageList';
 
-const Messages = ({ match }) => (
+const Messages = (route) => (
   <div>
     <h2>Messages</h2>
     <ul>
       <li>
-        <Link to={`${match.url}/outgoing`}>
+        <Link to={`${route.match.url}/outgoing`}>
           Outgoing
         </Link>
       </li>
       <li>
-        <Link to={`${match.url}/incoming`}>
+        <Link to={`${route.match.url}/incoming`}>
           Incoming
         </Link>
       </li>
     </ul>
 
-    <Route path={`${match.url}/:messageType`} component={MessageList}/>
-    <Route exact path={match.url} render={() => (
-      <Redirect from={match.url} to={`${match.url}/outgoing`} />
+    <Route path={`${route.match.url}/:messageType`} component={MessageList}/>
+    <Route exact path={route.match.url} render={() => (
+      <Redirect from={route.match.url} to={`${route.match.url}/outgoing`} />
     )}/>
   </div>
 );

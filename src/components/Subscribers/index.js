@@ -7,30 +7,30 @@ import {
 
 import SubscriberList from './SubscriberList';
 
-const Subscribers = ({ match }) => (
+const Subscribers = (route) => (
   <div>
     <h2>Subscribers</h2>
     <ul>
       <li>
-        <Link to={`${match.url}/residents`}>
+        <Link to={`${route.match.url}/residents`}>
           Residents
         </Link>
       </li>
       <li>
-        <Link to={`${match.url}/prospects`}>
+        <Link to={`${route.match.url}/prospects`}>
           Prospects
         </Link>
       </li>
       <li>
-        <Link to={`${match.url}/inactive`}>
+        <Link to={`${route.match.url}/inactive`}>
           Inactive
         </Link>
       </li>
     </ul>
 
-    <Route path={`${match.path}/:subscriberType`} component={SubscriberList}/>
-    <Route exact path={match.path} render={() => (
-      <Redirect from={match.path} to={`${match.path}/residents`} />
+    <Route path={`${route.match.url}/:subscriberType`} component={SubscriberList}/>
+    <Route exact path={route.match.url} render={() => (
+      <Redirect from={route.match.url} to={`${route.match.url}/residents`} />
     )}/>
   </div>
 );

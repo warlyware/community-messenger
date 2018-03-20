@@ -1,9 +1,7 @@
 import React from 'react';
 
-const SubscriberList = ({ match }) => (
-  <div>
-    <h3>{match.params.subscriberType}</h3>
-  </div>
+const SubscriberList = (route) => (
+  <h3>{route.match.params.subscriberType}</h3>
 );
 
 export default SubscriberList;
