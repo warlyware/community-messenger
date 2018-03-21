@@ -6,6 +6,7 @@ import {
 import axios from 'axios';
 import './styles/normalize.css';
 import './styles/skeleton.css';
+import './styles/base.css';
 
 import Dashboard from './components/Dashboard';
 import Help from './components/Help';
