@@ -4,6 +4,8 @@ import {
   Link
 } from 'react-router-dom'
 import axios from 'axios';
+import './styles/normalize.css';
+import './styles/skeleton.css';
 
 import Dashboard from './components/Dashboard';
 import Help from './components/Help';
