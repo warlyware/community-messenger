@@ -1,7 +1,14 @@
 import React from 'react';
 
+import DashboardNotificationList from './DashboardNotificationList';
+import DashboardMessageList from './DashboardMessageList';
+
 const Dashboard = () => (
-    <h2>Dashboard</h2>
+    <div>
+        <h2>Dashboard</h2>
+        <DashboardNotificationList />
+        <DashboardMessageList />
+    </div>
 );
 
 export default Dashboard;
