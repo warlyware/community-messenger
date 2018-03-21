@@ -39,16 +39,14 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <ul>
-          <li><Link to="/">Dashboard</Link></li>
-          <li><Link to="/messages">Messages</Link></li>
-          <li><Link to="/subscribers">Subscribers</Link></li>
-          <li><Link to="/help">Help</Link></li>
+      <div className="container">
+        <ul className="row">
+          <li className="two columns"><Link to="/">Dashboard</Link></li>
+          <li className="two columns"><Link to="/messages">Messages</Link></li>
+          <li className="two columns"><Link to="/subscribers">Subscribers</Link></li>
+          <li className="two columns"><Link to="/help">Help</Link></li>
         </ul>
-  
         <hr/>
-
         <Route exact path="/" component={Dashboard}/>
         <Route path="/help" component={Help}/>
         <Route path="/messages" component={Messages}/>

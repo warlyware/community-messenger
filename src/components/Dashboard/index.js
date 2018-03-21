@@ -6,8 +6,10 @@ import DashboardMessageList from './DashboardMessageList';
 const Dashboard = () => (
   <div>
     <h2>Dashboard</h2>
-    <DashboardNotificationList />
-    <DashboardMessageList />
+    <div className="row">
+      <DashboardNotificationList />
+      <DashboardMessageList />
+    </div>
   </div>
 );
 

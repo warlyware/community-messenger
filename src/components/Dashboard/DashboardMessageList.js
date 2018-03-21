@@ -1,7 +1,9 @@
 import React from 'react';
 
 const DashboardMessageList = (route) => (
-  <h3>Messages</h3>
+  <div className="six columns">
+    <h3>Messages</h3>
+  </div>
 );
 
 export default DashboardMessageList;
