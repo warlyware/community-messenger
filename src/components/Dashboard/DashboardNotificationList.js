@@ -1,5 +1,7 @@
 import React from 'react';
 
+import DashboardNotificationListItem from './DashboardNotificationListItem'
+
 const fakeNotifications = [
   {
     "name": "Bob Labla",
@@ -32,12 +34,7 @@ const DashboardNotificationList = (route) => (
   <div className="six columns border padding-8">
     <h3>Notifications</h3>
     {fakeNotifications.map((notification) => {
-      return (
-        <div className="row">
-          <h5 className="twelve columns margin-bottom-0">{notification.name} has {notification.action}</h5>
-          <div className="twelve columns">{notification.time}</div>
-        </div>
-      );
+      return <DashboardNotificationListItem notification={notification} />;
     })}
   </div>
 );
