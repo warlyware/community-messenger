@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 
 import NotificationListItem from './NotificationListItem'
+import API from '../../api';
 
 const fakeNotifications = [
   {
@@ -35,16 +37,35 @@ const fakeNotifications = [
   },
 ];
 
-const NotificationList = (route) => (
-  <div className="six columns border padding-8">
-    <h3>Notifications</h3>
-    {fakeNotifications.map((notification) => {
-      return <NotificationListItem
-        key={notification.id}
-        notification={notification}
-      />;
-    })}
-  </div>
-);
+export default class NotificationList extends Component {
+  state = {
+    notifications: []
+  }
 
-export default NotificationList;
+  // componentWillMount() {
+  //   axios.get(API.find.relatedToMyProperty, {
+  //     params: {
+  //       types: 'MESSAGE_INCOMING,SUBSCRIBE,UNSUBSCRIBE'
+  //     }
+  //   }).then((notifications) => {
+  //     console.log(notifications);
+  //     this.setState({ notifications })
+  //   }).catch((error) => {
+  //     console.error(error);
+  //   });
+  // }
+
+  render() {
+    return (
+      <div className="six columns border padding-8">
+        <h3>Notifications</h3>
+        {fakeNotifications.map((notification) => {
+          return <NotificationListItem
+            key={notification.id}
+            notification={notification}
+          />;
+        })}
+      </div>
+    );
+  }
+}

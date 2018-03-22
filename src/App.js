@@ -25,7 +25,7 @@ class App extends Component {
   componentDidMount() {
     const token = window.btoa(window.unescape(window.encodeURIComponent(CREDS.string)));
 
-    axios.get(API.findMe, {
+    axios.get(API.find.me, {
       headers: {
         Authorization: `Basic ${token}`
       }
