@@ -1,14 +1,14 @@
 import React from 'react';
 
-import DashboardNotificationList from './DashboardNotificationList';
-import DashboardMessageList from './DashboardMessageList';
+import NotificationList from './NotificationList';
+import MessageList from './MessageList';
 
 const Dashboard = () => (
   <div>
     <h2>Dashboard</h2>
     <div className="row">
-      <DashboardNotificationList />
-      <DashboardMessageList />
+      <NotificationList />
+      <MessageList />
     </div>
   </div>
 );
