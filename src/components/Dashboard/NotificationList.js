@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import NotificationListItem from './NotificationListItem'
-import API from '../../api';
 
 const fakeNotifications = [
   {
@@ -41,19 +39,6 @@ export default class NotificationList extends Component {
   state = {
     notifications: []
   }
-
-  // componentWillMount() {
-  //   axios.get(API.find.relatedToMyProperty, {
-  //     params: {
-  //       types: 'MESSAGE_INCOMING,SUBSCRIBE,UNSUBSCRIBE'
-  //     }
-  //   }).then((notifications) => {
-  //     console.log(notifications);
-  //     this.setState({ notifications })
-  //   }).catch((error) => {
-  //     console.error(error);
-  //   });
-  // }
 
   render() {
     return (
