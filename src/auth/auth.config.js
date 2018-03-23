@@ -5,7 +5,7 @@ export const userIsAuthenticated = connectedRouterRedirect({
  redirectPath: '/login',
   // If selector is true, wrapper will not redirect
   // For example let's check that state contains user data
- authenticatedSelector: state => state.user !== null,
+ authenticatedSelector: state => state.user.data !== null,
  // A nice display name for this check
  wrapperDisplayName: 'UserIsAuthenticated'
 });

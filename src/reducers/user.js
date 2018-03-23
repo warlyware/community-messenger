@@ -5,7 +5,7 @@ const initialState = {
   isLoading: false
 }
 
-export default function userUpdate(state = initialState, { type, payload }) {
+export default function userReducer(state = initialState, { type, payload }) {
   switch (type) {
     case constants.USER_LOGGING_IN:
       return { ...initialState, isLoading: true }
