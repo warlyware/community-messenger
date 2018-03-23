@@ -12,6 +12,7 @@ import './styles/normalize.css';
 import './styles/skeleton.css';
 import './styles/base.css';
 
+import Navigation from './components/Navigation';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Help from './components/Help';
@@ -20,25 +21,11 @@ import Subscribers from './components/Subscribers';
 
 import './App.css';
 
-const getUserName = user => {
-  if (user.data) {
-    debugger;
-    return user.data.account.username;
-  }
-  return 'Not logged in';
-}
-
 const App = ({user}) => {
   return(
     <Router>
       <div className="container">
-        <ul className="row">
-          <li className="two columns"><NavLink to="/">Dashboard</NavLink></li>
-          <li className="two columns"><NavLink to="/messages">Messages</NavLink></li>
-          <li className="two columns"><NavLink to="/subscribers">Subscribers</NavLink></li>
-          <li className="two columns"><NavLink to="/help">Help</NavLink></li>
-          <li className="two columns">{getUserName(user)}</li>
-        </ul>
+        <Navigation user={user} />
         <hr/>
         <Route path="/login" component={UserIsNotAuthenticated(Login)}/>
         <Route exact path="/" component={UserIsAuthenticated(Dashboard)}/>
