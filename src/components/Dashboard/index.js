@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { userIsAuthenticated } from '../../auth/auth.config';
 import NotificationList from './NotificationList';
 import MessageList from './MessageList';
 
@@ -13,4 +14,4 @@ const Dashboard = () => (
   </div>
 );
 
-export default Dashboard;
+export default userIsAuthenticated(Dashboard);
