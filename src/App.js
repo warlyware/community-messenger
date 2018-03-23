@@ -1,10 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
   BrowserRouter as Router,
   Route,
   NavLink
 } from 'react-router-dom'
 import { connect } from 'react-redux';
+
+import { UserIsAuthenticated, UserIsNotAuthenticated } from './auth/auth.config';
 
 import './styles/normalize.css';
 import './styles/skeleton.css';
@@ -38,11 +40,11 @@ const App = ({user}) => {
           <li className="two columns">{getUserName(user)}</li>
         </ul>
         <hr/>
-        <Route path="/login" component={Login}/>
-        <Route exact path="/" component={Dashboard}/>
-        <Route path="/help" component={Help}/>
-        <Route path="/messages" component={Messages}/>
-        <Route path="/subscribers" component={Subscribers}/>
+        <Route path="/login" component={UserIsNotAuthenticated(Login)}/>
+        <Route exact path="/" component={UserIsAuthenticated(Dashboard)}/>
+        <Route path="/help" component={UserIsAuthenticated(Help)}/>
+        <Route path="/messages" component={UserIsAuthenticated(Messages)}/>
+        <Route path="/subscribers" component={UserIsAuthenticated(Subscribers)}/>
       </div>
     </Router>
   );
