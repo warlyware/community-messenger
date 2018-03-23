@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { login } from '../../actions/User';
 
 class Login extends Component {
+  static defaultProps = {
+    login: () => {}
+  }
 
   handleLogin = (event) => {
     event.preventDefault();
