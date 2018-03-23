@@ -3,6 +3,7 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+import { connect } from 'react-redux';
 import axios from 'axios';
 
 import './styles/normalize.css';
@@ -19,45 +20,35 @@ import API from './api';
 
 import './App.css';
 
-class App extends Component {
-  state = {
-    user: {}
+const getUserName = user => {
+  if (user.data) {
+    return user.data.name;
   }
-
-  componentDidMount() {
-    const token = window.btoa(window.unescape(window.encodeURIComponent(CREDS.string)));
-
-    axios.get(API.find.me, {
-      headers: {
-        Authorization: `Basic ${token}`
-      }
-    }).then((user) => {
-      this.setState({
-        user
-       });
-    }).catch((err) => {
-      console.error(err);
-    });
-  }
-
-  render() {
-    return (
-      <div className="container">
-        <ul className="row">
-          <li className="two columns"><Link to="/">Dashboard</Link></li>
-          <li className="two columns"><Link to="/messages">Messages</Link></li>
-          <li className="two columns"><Link to="/subscribers">Subscribers</Link></li>
-          <li className="two columns"><Link to="/help">Help</Link></li>
-        </ul>
-        <hr/>
-        <Route path="/login" component={Login}/>
-        <Route exact path="/" component={Dashboard}/>
-        <Route path="/help" component={Help}/>
-        <Route path="/messages" component={Messages}/>
-        <Route path="/subscribers" component={Subscribers}/>
-      </div>
-    );
-  }
+  return 'Not logged in';
 }
 
-export default App;
+const App = ({user}) => {
+  return(
+    <div className="container">
+      <ul className="row">
+        <li className="two columns"><Link to="/">Dashboard</Link></li>
+        <li className="two columns"><Link to="/messages">Messages</Link></li>
+        <li className="two columns"><Link to="/subscribers">Subscribers</Link></li>
+        <li className="two columns"><Link to="/help">Help</Link></li>
+        <li className="two columns">{getUserName(user)}</li>
+      </ul>
+      <hr/>
+      <Route path="/login" component={Login}/>
+      <Route exact path="/" component={Dashboard}/>
+      <Route path="/help" component={Help}/>
+      <Route path="/messages" component={Messages}/>
+      <Route path="/subscribers" component={Subscribers}/>
+    </div>
+  );
+}
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(App);
