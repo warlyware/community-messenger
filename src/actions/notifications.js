@@ -19,7 +19,6 @@ export const getNotifications = () => (dispatch, getState) => {
       perPage: 20
     }
   }).then(notifications => {
-    debugger;
     dispatch({
       type: actions.NOTIFICATIONS_RECEIVED,
       payload: notifications.data.data

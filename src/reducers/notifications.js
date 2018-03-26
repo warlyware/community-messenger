@@ -5,7 +5,6 @@ export default function notificationsReducer(state = [], action) {
     case actions.GETTING_NOTIFICATIONS:
       return state;
     case actions.NOTIFICATIONS_RECEIVED:
-      // debugger;
       return action.payload
     default:
       return state;

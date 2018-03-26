@@ -1,8 +1,8 @@
 import * as actions from '../constants/actions'
 
 const initialState = {
-  data: null,
-  token: null,
+  data: JSON.parse(localStorage.getItem('user')) || null,
+  token: localStorage.getItem('token') || null,
   isLoading: false
 }
 

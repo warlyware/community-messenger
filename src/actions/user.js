@@ -14,6 +14,8 @@ export const login = data => dispatch => {
       Authorization: `Basic ${token}`
     }
   }).then((user) => {
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(user.data));
     dispatch({
       type: actions.USER_LOGGED_IN,
       payload: user.data,
@@ -26,6 +28,8 @@ export const login = data => dispatch => {
 }
 
 export function logout() {
+  localStorage.removeItem('token');
+
   return {
     type: actions.USER_LOGGED_OUT
   }
