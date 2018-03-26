@@ -16,7 +16,8 @@ export const login = data => dispatch => {
   }).then((user) => {
     dispatch({
       type: actions.USER_LOGGED_IN,
-      payload: user.data
+      payload: user.data,
+      meta: token
     });
   })
   .catch((err) => {
