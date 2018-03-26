@@ -17,15 +17,17 @@ class Login extends Component {
 
   render() {
     return(
-      <div>
+      <form onSubmit={this.handleLogin}>
         <h2>Login</h2>
         <input type="text" ref="name" />
         <input type="password" ref="password" />
         <br/>
-        <button onClick={this.handleLogin}>Submit</button>
-      </div>
+        <button type="submit">Submit</button>
+      </form>
     );
   }
 }
 
-export default connect(null, { login })(Login);
+export default connect(null, {
+  login: login
+})(Login);
