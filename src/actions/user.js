@@ -2,11 +2,11 @@ import axios from 'axios';
 import CREDS from '../creds';
 import API from '../api';
 
-import * as constants from '../constants'
+import * as actions from '../constants/actions';
 
 export const login = data => dispatch => {
   dispatch({
-    type: constants.USER_LOGGING_IN
+    type: actions.USER_LOGGING_IN
   });
 
   const token = window.btoa(window.unescape(window.encodeURIComponent(CREDS.string)));
@@ -16,7 +16,7 @@ export const login = data => dispatch => {
     }
   }).then((user) => {
     dispatch({
-      type: constants.USER_LOGGED_IN,
+      type: actions.USER_LOGGED_IN,
       payload: user.data
     });
   })
@@ -27,6 +27,6 @@ export const login = data => dispatch => {
 
 export function logout() {
   return {
-    type: constants.USER_LOGGED_OUT
+    type: actions.USER_LOGGED_OUT
   }
 }
