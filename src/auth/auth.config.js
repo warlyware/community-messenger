@@ -1,5 +1,6 @@
 import { connectedRouterRedirect } from 'redux-auth-wrapper/history4/redirect';
 import locationHelperBuilder from 'redux-auth-wrapper/history4/locationHelper';
+import connectedAuthWrapper from 'redux-auth-wrapper/connectedAuthWrapper'
 
 const locationHelper = locationHelperBuilder({});
 
@@ -23,4 +24,9 @@ export const UserIsNotAuthenticated = connectedRouterRedirect({
   authenticatedSelector: state => state.user.data === null,
   // A nice display name for this check
   wrapperDisplayName: 'UserIsNotAuthenticated'
-})
+});
+
+export const VisibleWhenLoggedIn = connectedAuthWrapper({
+  authenticatedSelector: state => state.user.data !== null,
+  wrapperDisplayName: 'VisibleWhenLoggedIn'
+});
