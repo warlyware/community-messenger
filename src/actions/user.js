@@ -29,6 +29,7 @@ export const login = data => dispatch => {
 
 export function logout() {
   localStorage.removeItem('token');
+  localStorage.removeItem('user');
 
   return {
     type: actions.USER_LOGGED_OUT

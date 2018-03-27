@@ -1,7 +1,10 @@
-import React, { Component, Link } from 'react';
+import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default class Navigation extends Component {
+import { logout } from '../../actions/user';
+
+class Navigation extends Component {
   static defaultProps = {
     user: {}
   }
@@ -13,6 +16,10 @@ export default class Navigation extends Component {
     return 'Not logged in';
   }
 
+  logout = () => {
+    this.props.logout();
+  }
+
   render() {
     return (
       <ul className="row">
@@ -20,9 +27,13 @@ export default class Navigation extends Component {
         <li className="two columns"><NavLink to="/messages">Messages</NavLink></li>
         <li className="two columns"><NavLink to="/subscribers">Subscribers</NavLink></li>
         <li className="two columns"><NavLink to="/help">Help</NavLink></li>
-        <li className="two columns"><Link onClick={this.logout}>Logout</Link></li>
+        <li className="two columns"><a href="#" onClick={this.logout}>Logout</a></li>
         <li className="two columns">{this.getUserName()}</li>
       </ul>
     );
   }
 }
+
+export default connect(null, {
+  logout: logout
+})(Navigation);
