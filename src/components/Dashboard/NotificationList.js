@@ -16,7 +16,7 @@ class NotificationList extends Component {
   render() {
     return (
       <div className="six columns border padding-8">
-        {console.log(this.props.notifications.data)}
+        {console.log(this.props.notifications)}
         <h3>Notifications</h3>
         {this.props.notifications.map((notification) => {
           return <NotificationListItem

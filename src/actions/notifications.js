@@ -10,13 +10,14 @@ export const getNotifications = () => (dispatch, getState) => {
 
   const token = getState().user.token;
 
-  axios.get(API.broadcasts.createdByMe, {
+  axios.get(API.find.relatedToMyProperty, {
     headers: {
       Authorization: `Basic ${token}`
     },
     params: {
       page: 1,
-      perPage: 20
+      perPage: 20,
+      types: 'MESSAGE_INCOMING,SUBSCRIBE,UNSUBSCRIBE'
     }
   }).then(notifications => {
     dispatch({
