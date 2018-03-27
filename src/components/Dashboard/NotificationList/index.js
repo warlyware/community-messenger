@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import NotificationListItem from './NotificationListItem'
-import { getNotifications } from '../../actions/notifications';
+import { getNotifications } from '../../../actions/notifications';
 
 class NotificationList extends Component {
   static defaultProps = {
@@ -16,7 +16,6 @@ class NotificationList extends Component {
   render() {
     return (
       <div className="six columns border padding-8">
-        {console.log(this.props.notifications)}
         <h3>Notifications</h3>
         {this.props.notifications.map((notification) => {
           return <NotificationListItem

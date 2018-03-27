@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { VisibleWhenLoggedIn } from '../../auth/auth.config';
 import { logout } from '../../actions/user';
 
+import './Navigation.css';
+
 class Navigation extends Component {
   static defaultProps = {
     user: {}
@@ -26,13 +28,13 @@ class Navigation extends Component {
     const LogoutLink = VisibleWhenLoggedIn(() => {
       return(
         <li className="two columns">
-          <a href="#" onClick={this.logout}>Logout</a>
+          <a href='' onClick={this.logout}>Logout</a>
         </li>
       );
-
     });
+
     return (
-      <ul className="row">
+      <ul className="row list-style-none">
         <li className="two columns"><NavLink to="/">Dashboard</NavLink></li>
         <li className="two columns"><NavLink to="/messages">Messages</NavLink></li>
         <li className="two columns"><NavLink to="/subscribers">Subscribers</NavLink></li>

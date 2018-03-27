@@ -16,6 +16,8 @@ export default class NotificationListItem extends Component {
         return 'replied';
       case actionTypes.UNSUBSCRIBE:
         return 'unsubscribed';
+      default:
+        return '';
     }
   }
 
