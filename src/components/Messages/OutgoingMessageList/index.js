@@ -5,6 +5,10 @@ import { getMessages } from '../../../actions/messages';
 import OutgoingMessageListItem from './OutgoingMessageListItem';
 
 class OutgoingMessageList extends Component {
+  selectMessage = (message) => {
+    console.log('selectedMessage', message);
+  }
+
   componentDidMount() {
     this.props.getMessages()
   }
@@ -21,7 +25,11 @@ class OutgoingMessageList extends Component {
         </thead>
         <tbody>
           {this.props.messages.map((message) => {
-            return <OutgoingMessageListItem message={message} />
+            return <OutgoingMessageListItem
+              key={message.id}
+              message={message}
+              onSelect={this.selectMessage}
+            />
           })}
         </tbody>
       </table>
