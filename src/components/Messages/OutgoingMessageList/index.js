@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Modal from 'react-modal';
 
 import { getMessages } from '../../../actions/messages';
 import OutgoingMessageListItem from './OutgoingMessageListItem';
+import MessageDetails from '../MessageDetails';
+
+Modal.setAppElement('#root');
 
 class OutgoingMessageList extends Component {
+  state = {
+    selectedMessage: null
+  }
+
   selectMessage = (message) => {
-    console.log('selectedMessage', message);
+    this.setState({
+      selectedMessage: message
+    });
+  }
+
+  unselectMessage = () => {
+    this.setState({
+      selectedMessage: null
+    });
   }
 
   componentDidMount() {
@@ -32,6 +48,12 @@ class OutgoingMessageList extends Component {
             />
           })}
         </tbody>
+        <Modal
+          isOpen={this.state.selectedMessage ? true : false}
+          onRequestClose={this.unselectMessage}
+        >
+          <MessageDetails message={this.state.selectedMessage} />
+        </Modal>
       </table>
     );
   }
