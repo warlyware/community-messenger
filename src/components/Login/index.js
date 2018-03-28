@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import { login } from '../../actions/user';
 
 class Login extends Component {
@@ -29,6 +28,10 @@ class Login extends Component {
   }
 }
 
-export default connect(null, {
-  login: login
-})(Login);
+function mapDispatchToProps(dispatch) {
+  return {
+    login: (data) => dispatch(login(data))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Login);

@@ -10,6 +10,7 @@ import { UserIsAuthenticated, UserIsNotAuthenticated } from './auth/auth.config'
 import './styles/normalize.css';
 import './styles/skeleton.css';
 import './styles/base.css';
+import './App.css';
 
 import Navigation from './components/Navigation';
 import Login from './components/Login';
@@ -18,7 +19,6 @@ import Help from './components/Help';
 import Messages from './components/Messages';
 import Subscribers from './components/Subscribers';
 
-import './App.css';
 
 const App = ({user}) => {
   return(
