@@ -34,6 +34,10 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {
-  getNotifications: getNotifications
-})(NotificationList);
+function mapDispatchToProps(dispatch) {
+  return {
+    getNotifications: () => dispatch(getNotifications())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NotificationList);
