@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as moment from 'moment';
 
 import { getMessages } from '../../../actions/messages';
+import OutgoingMessageListItem from './OutgoingMessageListItem';
 
 class OutgoingMessageList extends Component {
   componentDidMount() {
@@ -20,16 +20,8 @@ class OutgoingMessageList extends Component {
           </tr>
         </thead>
         <tbody>
-          {console.log(this.props.messages)}
           {this.props.messages.map((message) => {
-            return(
-              <tr>
-                {console.log(message.sent)}
-                <td>{moment(message.sent).format('LLL')}</td>
-                <td>{message.title}</td>
-                <td>{message.status}</td>
-              </tr>
-            );
+            return <OutgoingMessageListItem message={message} />
           })}
         </tbody>
       </table>
