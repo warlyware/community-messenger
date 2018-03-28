@@ -8,7 +8,7 @@ const Dashboard = () => (
     <h2>Dashboard</h2>
     <div className="row">
       <NotificationList />
-      {/* <MessageList /> */}
+      <MessageList />
     </div>
   </div>
 );

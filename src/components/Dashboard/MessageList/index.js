@@ -34,6 +34,10 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {
-  getMessages: getMessages
-})(MessageList);
+function mapDispatchToProps(dispatch) {
+  return {
+    getMessages: () => dispatch(getMessages())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessageList);
