@@ -7,30 +7,29 @@ import {
 
 import SubscriberList from './SubscriberList';
 
-const Subscribers = (route) => (
-  <div>
-    <h2>Subscribers</h2>
-    <ul>
-      <li>
-        <Link to={`${route.match.url}/residents`}>
+const Subscribers = (props) => (
+  <div className="container">
+    <ul className="row list-style-none">
+      <li className="two columns">
+        <Link to={`${props.match.url}/residents`}>
           Residents
         </Link>
       </li>
-      <li>
-        <Link to={`${route.match.url}/prospects`}>
+      <li className="two columns">
+        <Link to={`${props.match.url}/prospects`}>
           Prospects
         </Link>
       </li>
-      <li>
-        <Link to={`${route.match.url}/inactive`}>
+      <li className="two columns">
+        <Link to={`${props.match.url}/inactive`}>
           Inactive
         </Link>
       </li>
     </ul>
 
-    <Route path={`${route.match.url}/:subscriberType`} component={SubscriberList}/>
-    <Route exact path={route.match.url} render={() => (
-      <Redirect from={route.match.url} to={`${route.match.url}/residents`} />
+    <Route path={`${props.match.url}/:subscriberType`} component={SubscriberList}/>
+    <Route exact path={props.match.url} render={() => (
+      <Redirect from={props.match.url} to={`${props.match.url}/residents`} />
     )}/>
   </div>
 );

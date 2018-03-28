@@ -7,25 +7,24 @@ import {
 
 import MessageList from './MessageList';
 
-const Messages = (route) => (
-  <div>
-    <h2>Messages</h2>
-    <ul>
-      <li>
-        <Link to={`${route.match.url}/outgoing`}>
+const Messages = (props) => (
+  <div className="container">
+    <ul className="row list-style-none">
+      <li className="two columns">
+        <Link to={`${props.match.url}/outgoing`}>
           Outgoing
         </Link>
       </li>
-      <li>
-        <Link to={`${route.match.url}/incoming`}>
+      <li className="two columns">
+        <Link to={`${props.match.url}/incoming`}>
           Incoming
         </Link>
       </li>
     </ul>
 
-    <Route path={`${route.match.url}/:messageType`} component={MessageList}/>
-    <Route exact path={route.match.url} render={() => (
-      <Redirect from={route.match.url} to={`${route.match.url}/outgoing`} />
+    <Route path={`${props.match.url}/:messageType`} component={MessageList}/>
+    <Route exact path={props.match.url} render={() => (
+      <Redirect from={props.match.url} to={`${props.match.url}/outgoing`} />
     )}/>
   </div>
 );
