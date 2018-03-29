@@ -5,7 +5,6 @@ export default class MessageListItem extends Component {
   render() {
     return (
       <div className="row">
-        {console.log(this.props.message)}
         <h6 className="twelve columns margin-bottom-0 bold row">
           <div className="nine columns">
             {this.props.message.title}

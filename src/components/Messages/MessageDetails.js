@@ -4,7 +4,7 @@ const MessageDetails = (props) => {
   return(
     <div>
       <h4>{props.message.title}</h4>
-      <button onClick={() => props.deleteMessage(props.message.id)}></button>
+      <button onClick={() => props.deleteMessage(props.message.id)}>Delete</button>
     </div>
   );
 }

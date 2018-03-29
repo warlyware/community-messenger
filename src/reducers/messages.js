@@ -9,16 +9,12 @@ export default function messagesReducer(state = [], action) {
     case `${actions.GET_MESSAGES}_REJECTED`:
       return [];
     case `${actions.DELETE_MESSAGE}_PENDING`:
-      console.log('pending');
       return state;
     case `${actions.DELETE_MESSAGE}_FULFILLED`:
-      console.log('fulfilled, current state', state);
       return state.filter((message) => {
-        return message.id !== state.id;
+        return message.id !== action.meta;
       });
     case `${actions.DELETE_MESSAGE}_REJECTED`:
-      console.log('rejected');
-      return state;
     default:
       return state;
   }

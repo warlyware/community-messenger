@@ -25,9 +25,8 @@ class OutgoingMessageList extends Component {
     });
   }
 
-  deleteMessage = (message) => {
-    console.log(`delete ${message}`);
-    this.props.deleteMessage(message);
+  deleteMessage = (messageId) => {
+    this.props.deleteMessage(messageId);
     this.unselectMessage();
   }
 
@@ -78,7 +77,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     getMessages: () => dispatch(getMessages()),
-    deleteMessage: (message) => dispatch(deleteMessage(message, 'broadcasts'))
+    deleteMessage: (messageId) => dispatch(deleteMessage(messageId, 'broadcasts'))
   }
 }
 

@@ -22,7 +22,6 @@ export const getMessages = () => {
 }
 
 export const deleteMessage = (messageId, messageType) => {
-  debugger;
   const token = localStorage.getItem('token');
   const request = axios.delete(`${API[messageType].delete}/${messageId}`, {
     headers: {
@@ -32,6 +31,7 @@ export const deleteMessage = (messageId, messageType) => {
 
   return {
     type: actions.DELETE_MESSAGE,
-    payload: request
+    payload: request,
+    meta: messageId
   }
 }
