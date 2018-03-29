@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Modal from 'react-modal';
 
-import { getMessages } from '../../../actions/messages';
+import { getMessages, deleteMessage } from '../../../actions/messages';
 import OutgoingMessageListItem from './OutgoingMessageListItem';
 import MessageDetails from '../MessageDetails';
 
@@ -25,6 +25,12 @@ class OutgoingMessageList extends Component {
     });
   }
 
+  deleteMessage = (message) => {
+    console.log(`delete ${message}`);
+    this.props.deleteMessage(message);
+    this.unselectMessage();
+  }
+
   componentDidMount() {
     this.props.getMessages()
   }
@@ -45,6 +51,7 @@ class OutgoingMessageList extends Component {
               key={message.id}
               message={message}
               onSelect={this.selectMessage}
+              deleteMessage={this.deleteMessage}
             />
           })}
         </tbody>
@@ -52,7 +59,10 @@ class OutgoingMessageList extends Component {
           isOpen={this.state.selectedMessage ? true : false}
           onRequestClose={this.unselectMessage}
         >
-          <MessageDetails message={this.state.selectedMessage} />
+          <MessageDetails
+            message={this.state.selectedMessage}
+            deleteMessage={this.deleteMessage}
+          />
         </Modal>
       </table>
     );
@@ -67,7 +77,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    getMessages: () => dispatch(getMessages())
+    getMessages: () => dispatch(getMessages()),
+    deleteMessage: (message) => dispatch(deleteMessage(message, 'broadcasts'))
   }
 }
 
